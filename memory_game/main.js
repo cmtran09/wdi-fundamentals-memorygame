@@ -19,14 +19,27 @@ const checkForMatch = () => {
   }
 };
 
-const flipCard = cardId => {
+const flipCard = function() {
+  let cardId = this.getAttribute("data-id");
   console.log(
     "User flipped " + cards[cardId].rank + " of " + cards[cardId].suit
   );
-  console.log(cards[cardId].suit);
   console.log(cards[cardId].cardImage);
   cardsInPlay.push(cards[cardId].rank);
-  checkForMatch();
+  this.setAttribute("src", cards[cardId].cardImage);
+  if (cardsInPlay.length === 2) {
+    checkForMatch();
+  }
 };
 
-flipCard(1);
+const createBoard = () => {
+  for (let i = 0; i < cards.length; i++) {
+    let cardElement = document.createElement("img");
+    cardElement.setAttribute("src", "images/back.png");
+    cardElement.setAttribute("data-id", i);
+    cardElement.addEventListener("click", flipCard);
+    document.getElementById("game-board").appendChild(cardElement);
+  }
+};
+
+createBoard();

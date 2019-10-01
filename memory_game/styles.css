@@ -28,8 +28,8 @@ h2 {
   letter-spacing: 1px;
   font-weight: 600;
   font-size: 20px;
-  border: #0d2c40 
-  margin: 0 auto
+  border: #0d2c40;
+  margin: 0 auto;
 }
 
 main {
@@ -58,7 +58,6 @@ nav {
 
 nav a {
   border-bottom: 2px solid transparent;
-
 }
 
 nav a:hover {
@@ -67,13 +66,13 @@ nav a:hover {
 }
 
 img {
-margin: 40px 8px;
+  margin: 40px 8px;
 }
 
 footer {
   text-transform: uppercase;
   padding: 0 20px;
-  background-color: #0D2C40;
+  background-color: #0d2c40;
   color: white;
   font-size: 14px;
   letter-spacing: 0.08em;
@@ -97,7 +96,7 @@ footer {
   clear: both;
   height: 0;
   font-size: 0;
-  }
+}
 
 .name {
   color: #f15b31;
