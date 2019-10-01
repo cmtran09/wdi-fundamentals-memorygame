@@ -10,10 +10,13 @@ let cards = [
 ];
 
 let cardsInPlay = [];
+let score = 0;
 
 const checkForMatch = () => {
   if (cardsInPlay[0] === cardsInPlay[1]) {
     console.log("You found a match!");
+    score++;
+    console.log("player score is " + score);
   } else {
     console.log("Sorry, try again.");
   }
@@ -21,9 +24,7 @@ const checkForMatch = () => {
 
 const flipCard = function() {
   let cardId = this.getAttribute("data-id");
-  console.log(
-    "User flipped " + cards[cardId].rank + " of " + cards[cardId].suit
-  );
+  console.log("User flipped " + cards[cardId].rank + " of " + cards[cardId].suit);
   console.log(cards[cardId].cardImage);
   cardsInPlay.push(cards[cardId].rank);
   this.setAttribute("src", cards[cardId].cardImage);
