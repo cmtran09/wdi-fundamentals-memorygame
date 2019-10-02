@@ -1,12 +1,84 @@
 let cards = [
-  { rank: "queen", suit: "hearts", cardImage: "images/queen-of-hearts.png" },
+  {
+    rank: "king",
+    suit: "hearts",
+    cardImage: "./cards/hearts/King_of_hearts.svg"
+  },
+  {
+    rank: "queen",
+    suit: "hearts",
+    cardImage: "./cards/hearts/Queen_of_hearts.svg"
+  },
+  {
+    rank: "Jack",
+    suit: "hearts",
+    cardImage: "./cards/hearts/Jack_of_hearts.svg"
+  },
+  {
+    rank: "ace",
+    suit: "hearts",
+    cardImage: "./cards/hearts/Ace_of_hearts.svg"
+  },
+  {
+    rank: "king",
+    suit: "spades",
+    cardImage: "./cards/spades/King_of_spades.svg"
+  },
+  {
+    rank: "queen",
+    suit: "spades",
+    cardImage: "./cards/spades/Queen_of_spades.svg"
+  },
+  {
+    rank: "Jack",
+    suit: "spades",
+    cardImage: "./cards/spades/Jack_of_spades.svg"
+  },
+  {
+    rank: "ace",
+    suit: "spades",
+    cardImage: "./cards/spades/Ace_of_spades.svg"
+  },
+  {
+    rank: "king",
+    suit: "diamonds",
+    cardImage: "./cards/diamonds/King_of_diamonds.svg"
+  },
   {
     rank: "queen",
     suit: "diamonds",
-    cardImage: "images/queen-of-diamonds.png"
+    cardImage: "./cards/diamonds/Queen_of_diamonds.svg"
   },
-  { rank: "king", suit: "hearts", cardImage: "images/king-of-hearts.png" },
-  { rank: "king", suit: "diamonds", cardImage: "images/king-of-diamonds.png" }
+  {
+    rank: "Jack",
+    suit: "diamonds",
+    cardImage: "./cards/diamonds/Jack_of_diamonds.svg"
+  },
+  {
+    rank: "ace",
+    suit: "diamonds",
+    cardImage: "./cards/diamonds/Ace_of_diamonds.svg"
+  },
+  {
+    rank: "king",
+    suit: "clubs",
+    cardImage: "./cards/clubs/King_of_clubs.svg"
+  },
+  {
+    rank: "queen",
+    suit: "clubs",
+    cardImage: "./cards/clubs/Queen_of_clubs.svg"
+  },
+  {
+    rank: "Jack",
+    suit: "clubs",
+    cardImage: "./cards/clubs/Jack_of_clubs.svg"
+  },
+  {
+    rank: "ace",
+    suit: "clubs",
+    cardImage: "./cards/clubs/Ace_of_clubs.svg"
+  }
 ];
 
 let cardsInPlay = [];
@@ -17,14 +89,16 @@ const checkForMatch = () => {
     // checks if cards "rank" value match
     console.log("You found a match!");
     // increase score by 2 then show score in console
-    score++;
+    score += 2;
     console.log("player score is " + score);
   } else {
     // if cards dont macth decrease score by 1
-    score--;
     console.log("Sorry, try again.");
+    score -= 1;
     console.log("player score is " + score);
   }
+  //empties out card in play array
+  cardsInPlay = [];
 };
 
 // only run if card is clicked, in accordance to the event listener in createBoard()
@@ -32,7 +106,9 @@ const checkForMatch = () => {
 const flipCard = function() {
   let cardId = this.getAttribute("data-id");
   // player is made know of the card rank and suit. Card image address loged also
-  console.log("User flipped " + cards[cardId].rank + " of " + cards[cardId].suit);
+  console.log(
+    "User flipped " + cards[cardId].rank + " of " + cards[cardId].suit
+  );
   console.log(cards[cardId].cardImage);
   // pushes the flipped card in to cardsInPlay array
   cardsInPlay.push(cards[cardId].rank);
@@ -75,7 +151,7 @@ const shuffle = array => {
 const createBoard = () => {
   for (let i = 0; i < cards.length; i++) {
     let cardElement = document.createElement("img");
-    cardElement.setAttribute("src", "images/back.png");
+    cardElement.setAttribute("src", "./cards/Card_backs_grid_blue.svg");
     cardElement.setAttribute("data-id", i);
     // when card is clicked, flip card function is run
     cardElement.addEventListener("click", flipCard);
@@ -85,5 +161,12 @@ const createBoard = () => {
 };
 
 // cards are shuffled before boead created
+const check = () => {
+  let title = document.querySelectorAll("p");
+  title.addEventListener("click", () => {
+    console.log("check");
+  });
+};
+
 shuffle(cards);
 createBoard();
