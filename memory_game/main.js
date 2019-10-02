@@ -91,11 +91,13 @@ const checkForMatch = () => {
     // increase score by 2 then show score in console
     score += 2;
     console.log("player score is " + score);
+    document.getElementById("scoreCounter").textContent = score;
   } else {
     // if cards dont macth decrease score by 1
     console.log("Sorry, try again.");
     score -= 1;
     console.log("player score is " + score);
+    document.getElementById("scoreCounter").textContent = score;
   }
   //empties out card in play array
   cardsInPlay = [];
@@ -161,12 +163,13 @@ const createBoard = () => {
 };
 
 // cards are shuffled before boead created
-const check = () => {
-  let title = document.querySelectorAll("p");
-  title.addEventListener("click", () => {
-    console.log("check");
+const reset = () => {
+  let button = document.getElementById("reset");
+  button.addEventListener("click", () => {
+    console.log("test");
   });
 };
 
 shuffle(cards);
 createBoard();
+reset();
