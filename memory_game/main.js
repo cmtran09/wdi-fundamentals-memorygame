@@ -166,7 +166,13 @@ const createBoard = () => {
 const reset = () => {
   let button = document.getElementById("reset");
   button.addEventListener("click", () => {
-    console.log("test");
+    //resets score and counter back to 0
+    score = 0;
+    document.getElementById("scoreCounter").textContent = 0;
+    console.log("game reset");
+    // suffle cards and crete board again
+    shuffle(cards);
+    createBoard();
   });
 };
 
