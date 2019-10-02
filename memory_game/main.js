@@ -44,6 +44,31 @@ const flipCard = function() {
   }
 };
 
+// shuffles the cards
+// random number is generated and used to pick a card in the array
+// this fuction will be run before the board is created
+const shuffle = array => {
+  let currentIndex = array.length;
+  let temp;
+  let randomIndex;
+
+  // keeps looping untill there are no cards left
+  while (currentIndex !== 0) {
+    // random interger between 0 and currentIndex (number of cards in the deck) generated
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    // current index is decremented; subtracted by one and returned as value since card has been removed
+    currentIndex--;
+    // the random card is swapped with current element
+    // working from the end of the array to the front
+    // card of currentIndex assiged to temp
+    temp = array[currentIndex];
+    // current card being shuffled swaps it's index with a random number between 0 and the current index (i value)
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temp;
+  }
+  return array;
+};
+
 //creates the gameboard
 // loops through card array creates a new img element then displays it on html for each card
 // each card assigned a datd-id corresponding to its for loop index
@@ -59,4 +84,6 @@ const createBoard = () => {
   }
 };
 
+// cards are shuffled before boead created
+shuffle(cards);
 createBoard();
