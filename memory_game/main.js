@@ -170,8 +170,12 @@ const reset = () => {
     score = 0;
     document.getElementById("scoreCounter").textContent = 0;
     console.log("game reset");
-    // suffle cards and crete board again
+    // clear the board. (all children of the #game-board div assigned as nothing)
+    let currentBoard = document.getElementById("game-board");
+    currentBoard.innerHTML = "";
+    // cards shuffled again
     shuffle(cards);
+    // new board created
     createBoard();
   });
 };
